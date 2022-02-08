@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 4rem;
+    font-family: sans-serif;
+    background-color: #1d1818;
+}
+
+.grid-container {
+    background-color: #404040;
+    border-radius: 10px;
+    border: solid 2px #000000;
+}
+
+.grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: solid 1px black;
+    border-radius: 10px;
+    background-color: #00aeff;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.grid-item:hover {
+    filter: opacity(0.9);
+    transform: scale(1.03);
+}
+
+
+.grid-container {
+    min-height: 600px;
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+    grid-template-columns: repeat(3, 1fr);
+        /* repeat --> puede tener un #, o auto-fit o auto-fill */
+    /* grid-template-columns: minmax(200px, 1fr) 1fr 2fr; */
+        /* minmax --> va a tomar como menos valor al min y va a crecer hasta el max */
+    /* grid-template-columns: 30% 200px 1fr 2fr; */
+        /* fr --> la fraccion */
+    /* grid-template-columns: 30% 200px auto auto; */
+    /* auto --> va a tomar el contenido completo hasta completar el div */
+    /* grid-template-columns: min-content max-content fit-content(200px); */
+        /* min-content --> tamaño mínimo del contenido */
+        /* max-content --> tamaño máximo del contenido */
+    /*
+    fit-content(arg):
+    minimun <--> min(arg, max-content)
+    */
+        /* fit-content --> va a tener como mínimo el min-content y el máximo va a ser el mínimo entre el valor por parámetro y max-content */
+
+    /* grid-template-rows: 150px 200px; */
+    /* grid-template-rows: repeat(auto-fit, minmax(min-content, max-content)); */
+
+    grid-auto-rows: 150px;/* auto-valor --> esto es para que las filas que no contemple en "grid-template-rows" tengan un ancho automático */
+    
+    grid-auto-flow: row dense;
+    /* row-colums --> son los valores que permite esta propiedad, determina el flujo de las grillas, en columnas o en filas. Si usa "column", puede usar "grid-auto-columns: 200px;" para determinar el ancho de esa nueva columna que se cree */
+
+    /* separacion entre filas */
+    /* row-gap: 10px; */
+    /* separacion entre columnas */
+    /* column-gap: 15px; */
+    /* Separacion (fila y columna) */
+    gap: 10px;
+    padding: 10px;
+
+    /* align-items: center; */
+    /* start-center-end-stretch --> alinear cada items en el eje x */
+    /* justify-items: center; */
+    /* start-center-end-stretch --> alinear cada items en el eje y */
+    /* place-items: center; */
+    /* en un solo codigo ambas anteriores "center end" o "center" para aplicar a ambos */
+
+    /* align-content: space-between; */
+    /* justify-content: space-between; */
+    place-content: stretch;
+}
+
+.diferente {
+    /* align-self: stretch;
+    justify-self: start; */
+    /* place-self: stretch; */
+
+    /* grid-column-start: 2;
+    grid-column-end: 4; */
+    /* grid-column: 1/3; */
+    /* grid-column: 1/-1; */
+    /* grid-column: 1/span 2; */
+    /* grid-column: span 2; */
+    /* grid-column: span 2/4; */
+
+    /* grid-row-start: 1;
+    grid-row-end: 3; */
+    /* grid-row: 2/4; */
+
+    grid-area: 1/1/3/3;
+
+}
